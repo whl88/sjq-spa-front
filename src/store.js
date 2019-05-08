@@ -14,8 +14,8 @@ export default new Vuex.Store({
                 text: '个人首页'
             },
             {
-                url: '/welcome',
-                text: '网站统计'
+                url: '/platform/welcome',
+                text: '欢迎'
             },
             {
                 url: '/about',

@@ -10,7 +10,10 @@ export default new Router({
       name: 'platform',
       component: () => import(/* webpackChunkName: "common" */ './views/common/Platform.vue'),
       children: [
-      
+        {
+          path:'welcome',
+          component: () => import(/* webpackChunkName: "common" */ './views/common/Welcome.vue'),
+        }
       ]
     },
     {
