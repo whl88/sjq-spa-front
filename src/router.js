@@ -7,8 +7,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'index',
-      component: () => import(/* webpackChunkName: "common" */ './views/common/Index.vue')
+      name: 'login',
+      component: () => import(/* webpackChunkName: "common" */ './views/login/Login.vue')
+    },
+    {
+      path: '/v',
+      name: 'visualization',
+      component: () => import(/* webpackChunkName: "common" */ './views/visualization/Index.vue')
     },
     {
       path: '/platform',
@@ -16,20 +21,21 @@ export default new Router({
       component: () => import(/* webpackChunkName: "common" */ './views/common/Platform.vue'),
       children: [
         {
-          path:'welcome',
-          component: () => import(/* webpackChunkName: "common" */ './views/common/Welcome.vue'),
+          path: '',
+          name: 'Welcome',
+          component: () => import(/* webpackChunkName: "common" */ './views/common/Welcome.vue')
         },
         {
           path: '*',
-          name: '404',
-          component: () => import(/* webpackChunkName: "common" */ './views/common/404.vue')
+          name: 'p404',
+          component: () => import(/* webpackChunkName: "common" */ './views/common/P404.vue')
         }
       ]
     },
     {
       path: '*',
-      name: '404',
-      component: () => import(/* webpackChunkName: "common" */ './views/common/404.vue')
+      name: 'p404',
+      component: () => import(/* webpackChunkName: "common" */ './views/common/P404.vue')
     }
   ]
 })

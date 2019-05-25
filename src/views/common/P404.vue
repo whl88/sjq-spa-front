@@ -1,12 +1,12 @@
 <template>
     <div class="tip">
-        页面未找到！
+        {{this.$route.path}}<br/>页面未找到！
     </div>
 </template>
 
 <script>
     export default {
-        name: "404"
+        name: "P404"
     }
 </script>
 

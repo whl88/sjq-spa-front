@@ -5,11 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "run mock": "node D:/dev/my-yapi/vendors/server/app.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
+    "normalize.css": "^8.0.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"

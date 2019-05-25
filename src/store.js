@@ -1,28 +1,38 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        config: {
-            baseUrl: 'http://localhost:8080'
-        },
-        menus: [
-            {
-                url: '/home',
-                text: '个人首页'
-            },
-            {
-                url: '/platform/welcome',
-                text: '欢迎'
-            },
-            {
-                url: '/about',
-                text: '关于'
-            }
-        ]
+        user:null,
+        menus: null
     },
-    mutations: {},
-    actions: {}
+    mutations: {
+        setUser:function (state,user) {
+            state.user = user;
+        },
+        setMenus:function (state,menus) {
+            state.menus = menus;
+        },
+    },
+    actions: {
+        refreshUser:function (context) {
+            if(!context.state.user){
+                axios.get('/api/main/user')
+                    .then(r => {
+                        context.commit('setUser',r.data);
+                    })
+            }
+        },
+        refreshMenus:function (context) {
+            if(!context.state.menus){
+                axios.get('/api/main/menus')
+                    .then(r => {
+                        context.commit('setMenus',r.data);
+                    })
+            }
+        },
+    }
 })

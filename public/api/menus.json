@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "code": "01",
+    "text": "办案区管理",
+    "url": "/baq/",
+    "icon": "baq.png",
+    "children": [
+      {
+        "id": "3",
+        "code": "0101",
+        "text": "侯问室管理",
+        "url": "/hws/",
+        "icon": "baq.png"
+      },
+      {
+        "id": "4",
+        "code": "0102",
+        "text": "询问室管理",
+        "url": "/xws/",
+        "icon": "baq.png"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "code": "02",
+    "text": "案件管理",
+    "url": "/aj/",
+    "icon": "baq.png"
+  }
+]

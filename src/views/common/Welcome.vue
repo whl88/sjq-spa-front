@@ -5,18 +5,12 @@
 </template>
 
 <script>
-    import axios from 'axios'
-
     export default {
         name: 'Welcome',
         data:function(){
             return {
-                user:null
+                user:{}
             }
-        },
-        mounted () {
-            axios.get(this.$store.state.config.baseUrl + '/mock/user.json')
-                .then(response => (this.user = response.data))
         }
     }
 </script>

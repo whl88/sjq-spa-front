@@ -34,17 +34,11 @@
     }
 </style>
 <script>
-    import axios from 'axios'
     export default {
         name: 'Index',
         data: function () {
             return {
-                user: null
             }
         },
-        mounted() {
-            axios.get(this.$store.state.config.baseUrl + '/mock/user.json')
-                .then(response => (this.user = response.data))
-        }
     }
 </script>

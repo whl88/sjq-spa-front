@@ -1,27 +1,29 @@
 <template>
     <router-link class="menu" :to="menu.url">
         <img class="icon" :src="menu.icon"/>
-        <div class="name">{{menu.name}}</div>
+        <div class="name">{{menu.text}}</div>
     </router-link>
 </template>
 
 <script>
     export default {
-        name: "Menu",
+        name: "Menu1",
         props: {
             menu:Object
+        },
+        methods:{
         }
     }
 </script>
 
 <style scoped>
     .menu{
-        display: block;
+        display: inline-block;
         margin:5px;
         padding:10px;
-        border:1px solid #f0f0f0;
         border-radius: 4px;
         text-align: center;
+        text-decoration-line: none;
     }
     .icon{
         width:40px;
@@ -29,6 +31,6 @@
     }
     .name{
         font-size:14px;
-        color: #606060;
+        color: #ffffff;
     }
 </style>
