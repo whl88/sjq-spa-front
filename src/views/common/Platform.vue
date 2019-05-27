@@ -11,10 +11,10 @@
             <div class="userinfo" v-if="user">欢迎您：{{user.name}}</div>
         </div>
         <div class="body">
-            <div class="menu-2" v-if="checkedFirstMenu && checkedFirstMenu.children" >
+            <div class="menu-2" v-if="checkedFirstMenu && checkedFirstMenu.children">
                 <Menu2 v-for="menu in checkedFirstMenu.children" @click.native="checkSecMenu(menu)"
-                      :key="menu.id"
-                :menu="menu"></Menu2>
+                       :key="menu.id"
+                       :menu="menu"></Menu2>
             </div>
             <div class="main">
                 <div class="menu-3" v-if="checkedSecMenu && checkedSecMenu.children">
@@ -22,7 +22,9 @@
                            :key="menu.id"
                            :menu="menu"></Menu3>
                 </div>
-                <router-view></router-view>
+                <keep-alive>
+                    <router-view></router-view>
+                </keep-alive>
             </div>
         </div>
 
@@ -30,7 +32,7 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
+    import {mapState} from 'vuex'
 
     import Menu1 from "../../components/Menu1";
     import Menu2 from "../../components/Menu2";
@@ -38,17 +40,17 @@
 
     export default {
         name: "Platform",
-        data:function () {
+        data: function () {
             return {
-                checkedFirstMenu:null,
-                checkedSecMenu:null,
+                checkedFirstMenu: null,
+                checkedSecMenu: null,
             }
         },
-        methods:{
-            checkFirstMenu:function(menu) {
+        methods: {
+            checkFirstMenu: function (menu) {
                 this.checkedFirstMenu = menu;
             },
-            checkSecMenu:function (menu) {
+            checkSecMenu: function (menu) {
                 this.checkedSecMenu = menu;
             }
         },
@@ -57,10 +59,10 @@
             Menu2,
             Menu3,
         },
-        computed:{
+        computed: {
             ...mapState({
                 user: 'user',
-                menus:"menus"
+                menus: "menus"
             })
         },
         created() {
@@ -76,51 +78,59 @@
         flex-direction: column;
         height: 100vh;
     }
-    .head{
+
+    .head {
         display: flex;
-        padding:10px 20px;
+        padding: 10px 20px;
         background-color: #5b5a5f;
         flex: 0 0 auto;
     }
-    .title{
+
+    .title {
         flex: 0 0 auto;
         display: flex;
         align-items: center;
     }
-    .logo{
+
+    .logo {
         height: 30px;
-        margin:0 10px;
+        margin: 0 10px;
     }
-    .text{
+
+    .text {
         display: inline-block;
-        font-size:36px;
-        color:#fff;
-        letter-spacing:10px;
+        font-size: 36px;
+        color: #fff;
+        letter-spacing: 10px;
         font-weight: 800;
     }
+
     .body {
         flex: 1 1 500px;
         display: flex;
         overflow: hidden;
     }
 
-    .menu-1{
-        flex:1 1 auto;
+    .menu-1 {
+        flex: 1 1 auto;
         display: flex;
         justify-content: flex-end;
     }
-    .userinfo{
-        position:absolute;
-        top:4px;
-        right:10px;
-        color:#fff;
-        font-size:14px;
+
+    .userinfo {
+        position: absolute;
+        top: 4px;
+        right: 10px;
+        color: #fff;
+        font-size: 14px;
     }
-    .menu-2{
+
+    .menu-2 {
         flex: 0 0 auto;
         overflow: auto;
     }
-    .main{
-        flex:1 1 auto;
+
+    .main {
+        flex: 1 1 auto;
     }
 </style>

@@ -1,6 +1,7 @@
 <template>
     <div class="tip">
         {{this.$route.path}}<br/>页面未找到！
+        <input type="text">
     </div>
 </template>
 

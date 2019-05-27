@@ -9,8 +9,10 @@
         name: 'Welcome',
         data:function(){
             return {
-                user:{}
             }
+        },
+        computed:{
+
         }
     }
 </script>
